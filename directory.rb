@@ -13,19 +13,23 @@ def input_students
   while !name.empty? do
     # add the student hash to the array
     students << {name: name, cohort: cohort}
-    puts "Now we have #{students.count} students"
-    # get another name from the user
-    puts "Name"
-    name = gets.chomp
-    puts "Cohort"
-    cohort = gets.chomp
-    if !name.empty? && cohort.empty?
-      cohort = "november"
+    if students.length === 1
+      puts "We have 1 student in the school" 
+    else
+      puts "Now we have #{students.count} students"
     end
-  end
+      # get another name from the user
+      puts "Name"
+      name = gets.chomp
+      puts "Cohort"
+      cohort = gets.chomp
+      if !name.empty? && cohort.empty?
+        cohort = "november"
+      end
+    end
   # return the array of students
-  students
-end
+     students
+  end
 
 def print_header
   puts "The students of Villains Academy".center(50)

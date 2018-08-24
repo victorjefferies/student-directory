@@ -36,10 +36,14 @@ def print_header
   puts "-------------".center(50)
 end
 def print(students)
-  counter = 0
-  until counter == (students.length) 
-    puts "#{students[counter][:name]} #{students[counter][:cohort]} cohort".center(50)
-    counter += 1
+  if !students.empty?
+    counter = 0
+    until counter == (students.length) 
+      puts "#{students[counter][:name]} #{students[counter][:cohort]} cohort".center(50)
+      counter += 1
+    end
+  else 
+    puts "Student list is empty"
   end
 end
 

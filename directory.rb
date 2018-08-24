@@ -18,18 +18,18 @@ def input_students
     else
       puts "Now we have #{students.count} students"
     end
-      # get another name from the user
-      puts "Name"
-      name = gets.chomp
-      puts "Cohort"
-      cohort = gets.chomp
-      if !name.empty? && cohort.empty?
+    # get another name from the user
+    puts "Name"
+    name = gets.gsub("\n", "")
+    puts "Cohort"
+    cohort = gets.chomp
+    if !name.empty? && cohort.empty?
         cohort = "november"
-      end
     end
-  # return the array of students
-     students
   end
+  # return the array of students
+ students
+end
 
 def print_header
   puts "The students of Villains Academy".center(50)

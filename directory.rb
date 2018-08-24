@@ -38,6 +38,30 @@ def print(students)
     counter += 1
   end
 end
+
+def sort_by_cohort(students)
+  cohort_hash = {}
+
+    students.each do |student|
+    cohort_attended = student[:cohort]
+      if cohort_hash[cohort_attended] == nil
+        cohort_hash[cohort_attended] = []
+      end
+      cohort_hash[cohort_attended].push(student[:name])
+    end
+    cohort_hash
+end
+
+def print_cohort(cohort_lists)
+  cohort_lists.each do |cohort, list|
+    puts cohort
+    puts "-------"
+    puts list
+  end
+end
+
+
+
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
@@ -46,3 +70,5 @@ students = input_students
 print_header
 print(students)
 print_footer(students)
+
+print_cohort(sort_by_cohort(students))

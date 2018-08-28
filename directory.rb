@@ -40,11 +40,25 @@ def input_students
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
-    @students << {name: name, cohort: :november}
+    hash_students(name)
     puts "Now we have #{@students.count} students"
     # get another name from the user
     name = STDIN.gets.chomp
   end
+end
+
+def load_students(filename = "students.csv")
+  file = File.open(filename, "r")
+  file.readlines.each do |line|
+  name, cohort = line.chomp.split(',')
+    hash_students(name, cohort)
+  end
+  file.close
+end
+
+
+def hash_students(name, cohort = "november")
+   @students << {name: name, cohort: cohort}
 end
 
 def show_students
@@ -80,14 +94,6 @@ def save_students
   file.close
 end
 
-def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-  name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort}
-  end
-  file.close
-end
 
 def try_load_students
   filename = ARGV.first# first argument from the command line

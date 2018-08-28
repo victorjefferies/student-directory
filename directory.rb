@@ -8,7 +8,8 @@ def print_menu
   puts "9. Exit" # 9 because we'll be adding more items
 end
 
-def interactive_menu
+def interactive_menu(filename)
+  load_students(filename)
   loop do
     print_menu
     process(STDIN.gets.chomp)
@@ -108,4 +109,4 @@ def try_load_students
 end
 
 try_load_students
-interactive_menu
+interactive_menu("students.csv")

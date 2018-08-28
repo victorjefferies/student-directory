@@ -59,7 +59,7 @@ def load_students(filename)
   name, cohort = line.chomp.split(',')
     hash_students(name)
   end
-  file.close
+
 end
 
 
@@ -97,7 +97,7 @@ def save_students(file)
     csv_line = student_data.join(",")
     file.puts csv_line
   end
-  file.close
+  
 end
 
 

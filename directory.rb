@@ -13,6 +13,7 @@ def interactive_menu(filename)
   loop do
     print_menu
     process(STDIN.gets.chomp)
+    puts "Success!"
   end
 end
 

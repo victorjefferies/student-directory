@@ -5,6 +5,7 @@ def print_menu
   puts "2. Show the students"
   puts "3. Save."
   puts "4. Load"
+  puts "5. Print sourcecode"
   puts "9. Exit" # 9 because we'll be adding more items
 end
 
@@ -14,6 +15,15 @@ def interactive_menu
     process(STDIN.gets.chomp)
   end
 end
+
+def print_sourcecode
+  file = File.open($0, "r")
+  file.readlines.each do |line|
+    puts line
+  end
+end
+
+  
 
 def process(selection)
   case selection
@@ -27,6 +37,8 @@ def process(selection)
     save_students(enter_filename)
   when "4"
     load_students(enter_filename)
+  when "5"
+    print_sourcecode
   else
     puts "I don't know what you meant, try again"
   end
